@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5809763003134875995}
   - component: {fileID: 5800989781004840757}
   - component: {fileID: 5824617947662977785}
+  - component: {fileID: -323552074262623772}
   m_Layer: 0
   m_Name: Powerup
   m_TagString: Powerup
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c8e9a715daac24048a124a1f8e3487fa, type: 3}
+--- !u!114 &-323552074262623772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823451370565714585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c0b5b161152474c84b9a7a035641d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpType: 1

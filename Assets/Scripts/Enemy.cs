@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public bool isBoss = false;
+    public float spawnInterval;
+    private float nextSpawn;
+    public int miniEnemySpawnCount;
+    private SpawnManager spawnManager;
+
     public float speed = 3f;
     private GameObject player;
     private Rigidbody enemyRigidbody;
@@ -13,6 +19,11 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.Find("Player");
         enemyRigidbody = GetComponent<Rigidbody>();
+
+        if (isBoss)
+        {
+            spawnManager = FindObjectOfType<SpawnManager>();
+        }
     }
 
     // Update is called once per frame
@@ -20,6 +31,15 @@ public class Enemy : MonoBehaviour
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         enemyRigidbody.AddForce(lookDirection * speed);
+
+        if (isBoss)
+        {
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + spawnInterval;
+                spawnManager.SpawnMiniEnemy(miniEnemySpawnCount);
+            }
+        }
 
         if (transform.position.y < -10)
         {
